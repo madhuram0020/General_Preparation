@@ -1,0 +1,90 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/loginshadow"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/etName"
+                style="@style/AppTheme.EditText"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:textSize="17dp"/>
+
+        </android.support.design.widget.TextInputLayout><android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/AppTheme.EditText"
+                android:hint="@string/email_Add"
+                android:inputType="textEmailAddress"
+                android:textSize="17dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/etPhone"
+                style="@style/AppTheme.EditText"
+                android:hint="@string/phone"
+                android:inputType="phone"
+                android:textSize="17dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/etPwd"
+                style="@style/AppTheme.EditText"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textSize="17dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+           android:layout_margin="16dp"
+            android:background="@drawable/registercorner"
+            android:text="@string/register"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></com.facebook.shimmer.ShimmerFrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>

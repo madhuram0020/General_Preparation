@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D50000</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#EEEEEE</color>
+    <color name="colorPrimaryDark">#E0E0E0</color>
     <color name="colorAccent">#FF4081</color>
 
     <!--custom color code-->
@@ -12,4 +12,13 @@
     <color name="accentColorSecondry">#1E88E5</color>
     <color name="darkGray">#fc313131</color>
     <color name="lightSky">#319Ad3</color>
+    <color name="viewPagerBg">#C5CAE9</color>
+
+    <!--kenbourn effect color-->
+    <color name="global_color_primary_light">#f5f5f5</color>
+    <color name="global_color_green_primary">#4caf50</color>
+    <color name="global_color_green_primary_light">#c8e6c9</color>
+    <color name="global_color_green_primary_dark">#388e3c</color>
+    <color name="global_color_green_accent">#ffc107</color>
+    <color name="global_color_green_control_activated">#ffc107</color>
 </resources>

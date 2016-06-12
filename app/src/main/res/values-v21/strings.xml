@@ -3,4 +3,7 @@
     <string name="email_Add">Email Id</string>
     <string name="Login">User Login</string>
     <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="phone">Mobile No.</string>
+
 </resources>

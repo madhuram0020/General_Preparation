@@ -2,7 +2,13 @@
     <string name="app_name">Exam Preparation</string>
     <string name="action_settings">Settings</string>
     <string name="email_Add">Email Id</string>
+    <string name="name">Name</string>
     <string name="Login">User Login</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
     <string name="password">Password</string>
+    <string name="phone">Mobile No.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
