@@ -72,23 +72,18 @@ public class RegisterFragment extends Fragment {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
+/*make a stringRequest request to server*/
         StringRequest request = new StringRequest(Request.Method.POST, url.toString(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Toast.makeText(getActivity(),"Success",Toast.LENGTH_LONG).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
 
-                        try {
-                            if (jsonObject.getString("error_msg").equalsIgnoreCase("User already existed with "+userEmail)) {
-                                Toast.makeText(getActivity(),"All ready Registered",Toast.LENGTH_LONG).show();
-
-                            } else{
-                                Toast.makeText(getActivity(),"Success",Toast.LENGTH_LONG).show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-
+                    if (jsonObject.optBoolean("error")) {
+                       Toast.makeText(getActivity(),"You have already registered",Toast.LENGTH_LONG).show();
+                    } else{
+                        Toast.makeText(getActivity(),"Success",Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -105,7 +100,6 @@ public class RegisterFragment extends Fragment {
 
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         requestQueue.add(request);
-      //  Toast.makeText(getActivity(), "success", Toast.LENGTH_LONG).show();
     }
 
     @Override

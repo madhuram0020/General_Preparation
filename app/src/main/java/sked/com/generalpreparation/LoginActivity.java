@@ -73,35 +73,41 @@ public class LoginActivity extends AppCompatActivity {
  * indicator ViewPager implementation
  */
 
-        simpleViewPager.setImageIds(resourceIds, new ImageResourceLoader() {
-            @Override
-            public void loadImageResource(ImageView imageView, int i) {
+                simpleViewPager.setImageIds(resourceIds, new ImageResourceLoader() {
+                    @Override
+                    public void loadImageResource(ImageView imageView, int i) {
 
-                imageView.setImageResource(i);
-            }
-        });
+                        imageView.setImageResource(i);
+                    }
+                });
+
+
 //set indicator color of selected and unselected dots.
-        int indicatorColor = Color.parseColor("#ffffff");
-        int selectedIndicatorColor = Color.parseColor("#fff000");
-        simpleViewPager.showIndicator(indicatorColor, selectedIndicatorColor);
+
+                int indicatorColor = Color.parseColor("#ffffff");
+                int selectedIndicatorColor = Color.parseColor("#fff000");
+                simpleViewPager.showIndicator(indicatorColor, selectedIndicatorColor);
+
+
 //set the scale type of imageView on ViewPager
-        simpleViewPager.setScaleType(ImageView.ScaleType.FIT_XY);
+
+                simpleViewPager.setScaleType(ImageView.ScaleType.FIT_XY);
 
 //call method of tabStrip
-        setViewPaser();
+        setViewPager();
     }
 
     /*method to set TabStrip below the viewPager Indicator*/
-    void setViewPaser() {
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new LoginFragment(), "Existing User");
-        adapter.addFragment(new RegisterFragment(), "New User");
-        viewPager.setAdapter(adapter);
+                void setViewPager() {
+                    viewPager = (ViewPager) findViewById(R.id.viewpager);
+                    PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
+                    adapter.addFragment(new LoginFragment(), "Existing User");
+                    adapter.addFragment(new RegisterFragment(), "New User");
+                    viewPager.setAdapter(adapter);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-    }
+                    tabLayout = (TabLayout) findViewById(R.id.tabs);
+                    tabLayout.setupWithViewPager(viewPager);
+                }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
