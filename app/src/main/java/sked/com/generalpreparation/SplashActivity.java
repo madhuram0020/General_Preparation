@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
      */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 16000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 10000;
 
     private final Handler mHideHandler = new Handler();
 
@@ -60,6 +60,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
     }
     private void setAnimation() {
+
         ObjectAnimator scaleXAnimation = ObjectAnimator.ofFloat(findViewById(R.id.welcomeTxt), "scaleX", 5.0F, 1.0F);
         scaleXAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
         scaleXAnimation.setDuration(1200);

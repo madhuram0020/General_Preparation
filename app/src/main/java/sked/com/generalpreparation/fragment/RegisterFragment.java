@@ -59,53 +59,63 @@ public class RegisterFragment extends Fragment {
         final String userEmail = emailField.getText().toString().toLowerCase().trim();
         final String userPassword = passwordField.getText().toString().toLowerCase().trim();
 
+
+        if (Utils.validateField(nameField) && Utils.validateEmail(emailField) && Utils.validatePassword(passwordField, true)) {
+
+
+/*show progress dialog till response is received*/
+            Utils.show(getActivity());
 /*append parameter in the url*/
 
-        Uri builtUri = Uri.parse(Synchronize.URL_REGISTER)
-                .buildUpon()
-                .appendQueryParameter(QUERY_PARAM, userName)
-                .appendQueryParameter(EMAIL_PARAM, userEmail)
-                .appendQueryParameter(PASSWORD_PARAM, "" + Integer.parseInt(userPassword))//check how to append integer
-                .build();
-        try {
-            url = new URL(builtUri.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+            Uri builtUri = Uri.parse(Synchronize.URL_REGISTER)
+                    .buildUpon()
+                    .appendQueryParameter(QUERY_PARAM, userName)
+                    .appendQueryParameter(EMAIL_PARAM, userEmail)
+                    .appendQueryParameter(PASSWORD_PARAM, "" + Integer.parseInt(userPassword))//check how to append integer
+                    .build();
+            try {
+                url = new URL(builtUri.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
 /*make a stringRequest request to server*/
-        StringRequest request = new StringRequest(Request.Method.POST, url.toString(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getActivity(),"Success",Toast.LENGTH_LONG).show();
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-
-                    if (jsonObject.optBoolean("error")) {
-                       Toast.makeText(getActivity(),"You have already registered",Toast.LENGTH_LONG).show();
-                    } else{
-                        Toast.makeText(getActivity(),"Success",Toast.LENGTH_LONG).show();
+            StringRequest request = new StringRequest(Request.Method.POST, url.toString(), new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+/*dismiss progress dialog*/
+                        Utils.dismiss();
+                        if (jsonObject.optBoolean("error")) {
+/*clear text from editText after value set to url */
+                            emailField.setText("");
+                            passwordField.setText("");
+                            Toast.makeText(getActivity(), "You have already registered", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+
+
                 }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
 
+                }
+            });
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-
-        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
-        requestQueue.add(request);
+            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+            requestQueue.add(request);
+        }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+// Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_register, container, false);
         ButterKnife.bind(this, v);
 

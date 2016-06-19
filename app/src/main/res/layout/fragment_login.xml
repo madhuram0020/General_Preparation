@@ -37,7 +37,7 @@
                 android:id="@+id/etPwd"
                 style="@style/AppTheme.EditText"
                 android:hint="@string/password"
-                android:inputType="textPassword"
+                android:inputType="numberPassword"
                 android:textSize="17dp"/>
 
         </android.support.design.widget.TextInputLayout>

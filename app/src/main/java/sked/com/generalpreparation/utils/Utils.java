@@ -28,6 +28,7 @@ public class Utils {
 
     public static ProgressDialog show(Context context) {
         progressDialog = ProgressDialog.show(context, null, "Please wait...", false, false, null);
+        progressDialog.setCanceledOnTouchOutside(true);
         return progressDialog;
     }
 
@@ -40,7 +41,15 @@ public class Utils {
         if (editText.getText().toString().length() > 0) {
             return true;
         } else {
-            editText.setError("Filed is required.");
+            editText.setError("Enter valid details");
+            return false;
+        }
+    }
+    public static boolean validateEmail(EditText editText) {
+        if (editText.getText().toString().length() > 0 && isValidEmail(editText.getText().toString().trim())) {
+            return true;
+        } else {
+            editText.setError("Enter valid details");
             return false;
         }
     }
