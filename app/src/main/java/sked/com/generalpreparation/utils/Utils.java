@@ -108,7 +108,7 @@ public class Utils {
         return userCredentials.getString(USER_EMAIL, "");
     }
 
-    public static void setUserCredential(Context context, String user_Id, String user_role, String user_name, boolean loggedIn) {
+    public static void setUserCredential(Context context, String user_Id,/* String user_role,*/ String user_name,String user_email, boolean loggedIn) {
 
         SharedPreferences userCredentials = context.getSharedPreferences(
                 USER_CREDENTIAL_PREFS, Activity.MODE_PRIVATE);
@@ -116,7 +116,8 @@ public class Utils {
         editor.putBoolean(IS_LOGGED_IN, loggedIn);
         editor.putString(USER_ID, user_Id);
         editor.putString(USER_NAME, user_name);
-        editor.putString(USER_ROLE, user_role);
+        editor.putString(USER_EMAIL, user_email);
+        /*editor.putString(USER_ROLE, user_role);*/
         editor.apply();
     }
 

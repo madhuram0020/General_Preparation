@@ -22,4 +22,6 @@
     <color name="global_color_green_accent">#ffc107</color>
     <color name="global_color_green_control_activated">#ffc107</color>
     <color name="loginbgcolor">#C5CAE9</color>
+    <color name="colorPrimaryDarkSecondary">#0091EA</color>
+    <color name="colorPrimarySeconadary">#00B0FF</color>
 </resources>

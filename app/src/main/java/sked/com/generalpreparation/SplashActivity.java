@@ -15,6 +15,8 @@ import android.widget.ImageView;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
+import sked.com.generalpreparation.utils.Utils;
+
 public class SplashActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -33,8 +35,13 @@ public class SplashActivity extends AppCompatActivity {
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
-          startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            finish();
+            if(Utils.isUserLoggedIn(SplashActivity.this)){
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                finish();
+            }else {
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                finish();
+            }
         }
     };
     @SuppressLint("InlinedApi")

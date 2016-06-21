@@ -1,6 +1,7 @@
 package sked.com.generalpreparation.fragment;
 
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,6 +28,7 @@ import java.net.URL;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import sked.com.generalpreparation.HomeActivity;
 import sked.com.generalpreparation.R;
 import sked.com.generalpreparation.Synchronize;
 import sked.com.generalpreparation.utils.Utils;
@@ -101,8 +103,17 @@ public class LoginFragment extends Fragment {
                             String dateValue = userDetail.getString("created_at");
                             String updatedValue = userDetail.getString("updated_at");
 
+ /*save user details in utils Activity*/
+                            Utils.setUserCredential(getActivity(),userID,nameValue,emailValue,true);
                             Toast.makeText(getActivity(), "welcome" + nameValue + "" + emailValue + "" + dateValue
                                     + "" + updatedValue, Toast.LENGTH_LONG).show();
+
+                            Intent intent=new Intent(getActivity(), HomeActivity.class);
+                            intent.putExtra("key_name",nameValue);
+                            intent.putExtra("key_email",emailValue);
+                            intent.putExtra("key_date",dateValue);
+                            startActivity(intent);
+
 
                         } else {
 
